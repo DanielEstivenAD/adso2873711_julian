@@ -8,17 +8,15 @@ void main() {
 • Por encima de tres minutos es 600 más 150 por cada minuto adicional a los tres primeros.
  */
   //DEFINICÍON vbles
-  double duracionLlamada, costoLlamada;
+  double duracionLlamada, costoLlamada, minutosAdicionales;
   //ENTRADA Alg
   print("Indique por favor la duración de la llamada");
   duracionLlamada = double.parse(stdin.readLineSync()!);
   //PROCESO Alg
   costoLlamada = 600;
-  if (duracionLlamada < 3) {
-    print("Tu llamada no tendrá un costo adicional");
-  } else if (duracionLlamada > 3) {
-    costoLlamada = ((duracionLlamada-3) * 150) + 600;
-    print("Tu llamada tendrá un costo adicional 150 por minuto");
+  if (duracionLlamada > 3) {
+    minutosAdicionales = duracionLlamada - 3;
+    costoLlamada = minutosAdicionales * 150 + 600;
   }
   //SALIDA Alg
   print("El costo de la llamada es de: $costoLlamada");

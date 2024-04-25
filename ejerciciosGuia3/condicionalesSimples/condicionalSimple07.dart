@@ -17,7 +17,8 @@ void main() {
     print("Tendrá un incremento del 3% en su fianza");
     valorfianza = (montoCliente * 0.03) / cantiCuota;
     print("La cuota que debe pagar es de: $valorfianza");
-  } else if (montoCliente > 50000) {
+  }
+  if (montoCliente > 50000) {
     print("Tendrá un incremento del 2% en su fianza");
     valorfianza = (montoCliente * 0.02) / cantiCuota;
     print("La cuota que debe pagar es de: $valorfianza");

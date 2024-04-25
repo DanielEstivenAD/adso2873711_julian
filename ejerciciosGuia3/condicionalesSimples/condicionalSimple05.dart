@@ -9,18 +9,19 @@ void main() {
   int cantiLlantas;
   double precioUnidad, precioTotal;
   //ENTRADA Alg
-  print("Indique la cantidad de llantas que desea pagar");
+  print("Indique la cantidad de llantas que desea comprar");
   cantiLlantas = int.parse(stdin.readLineSync()!);
   //PROCESO-SALIDA Alg
   if (cantiLlantas < 5) {
     print("El valor de cada llanta es 80.000");
-    precioUnidad = 80000;
-    precioTotal = precioUnidad* cantiLlantas;
-  print("El valor a pagar por las llantas es:$precioTotal");
-  } else if (cantiLlantas >= 5) {
+    precioUnidad = 80000; 
+    precioTotal = precioUnidad * cantiLlantas;
+    print("El valor a pagar por las llantas es:$precioTotal");
+  }
+  if (cantiLlantas >= 5) {
     print("El valor de cada llanta es 70.000");
-    precioUnidad = 70000; 
-    precioTotal = precioUnidad* cantiLlantas;
-  print("El valor a pagar por las llantas es:$precioTotal");
+    precioUnidad = 70000;
+    precioTotal = precioUnidad * cantiLlantas;
+    print("El valor a pagar por las llantas es:$precioTotal");
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   //Daniel Estiven Arboleda Duque - EJE CONDICIONAL SIMPLE 06
@@ -11,20 +12,21 @@ void main() {
   //ENTRADA Alg
   print("Indique por favor el Total a pagar");
   totalPagar = double.parse(stdin.readLineSync()!);
-  print("Indique por favor un número al azar");
-  numeroAzar = int.parse(stdin.readLineSync()!);
-  //PROCESO-SALIDA Alg
+  numeroAzar = Random().nextInt(100);
+  print("El número al azar es: $numeroAzar");
+  //PROCESO- Alg
+  descuento = 0;
   if (numeroAzar < 74) {
     print("Usted tendrá un 15% de DCTO");
     descuento = totalPagar * 0.15;
-    totalConDescuento = totalPagar - descuento;
     print("Se le descuenta un total de:$descuento");
-    print("El total a pagar de su compra con DCTO es de:$totalConDescuento");
-  } else if (numeroAzar >= 74) {
+  }
+  if (numeroAzar >= 74) {
     print("Usted tendrá un 20% de DCTO");
     descuento = totalPagar * 0.2;
-    totalConDescuento = totalPagar - descuento;
     print("Se le descuenta un total de:$descuento");
-    print("El total a pagar de su compra con DCTO es de:$totalConDescuento");
   }
+  //SALIDA Alg
+    totalConDescuento = totalPagar - descuento;
+    print("El total a pagar de su compra con DCTO es de:$totalConDescuento");
 }
