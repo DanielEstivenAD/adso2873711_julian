@@ -8,7 +8,7 @@ void main(List<String> args) {
   //DEFINICÍON vbles
   String? nombre;
   double horasTrabajadas, cuotashora, sueldo, incentivo;
-  //ENTRADA Alg
+
   print("Ingrese el nombre del empleado");
   nombre = stdin.readLineSync();
   print("Digite cantidad de horas trabajadas");
