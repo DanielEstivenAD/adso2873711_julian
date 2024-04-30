@@ -46,5 +46,7 @@ pediría al banco.
     print("Usted no pedirá un prestamo ya que su capital la cual es una cantidad de $capital es superior a 2000000");
     print(
         "USted destinara una cantidad de 500000 para el equipo de computo, una cantidad de 200000 para el mobiliario y una cantidad de $insumo para insumos y una cantidad de $incentivos para incentivos del personal");
-  } else {}
+  } else {
+    print("Datos mal ingresados");
+  }
 }

@@ -27,7 +27,9 @@ descuento. El precio de cada computadora es de $1100000
   } else if (cantPc > 10) {
     descuento = montoCompra * 0.4;
     print("Usted tendrá un 40% DCTO en su compra");
-  } else {}
+  } else {
+    print("Datos mal ingresados");
+  }
   valorPagar = montoCompra - descuento;
   //SALIDA Alg
   print("El valor total de su compra es de $valorPagar");
