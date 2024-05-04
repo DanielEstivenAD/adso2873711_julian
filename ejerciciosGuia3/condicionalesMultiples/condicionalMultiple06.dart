@@ -7,24 +7,27 @@ void main() {
 Es necesario tener en cuenta si es año bisiesto o no.
  */
   //DEFINICIÓN Vbles
-  String? bisiesto, meses;
-  int ano, dias;
+  String? meses;
+  int anio, dias, bisiesto;
+  bool esBisiesto;
   //ENTRADA Alg
   print("Confirme el mes a consultar");
   meses = stdin.readLineSync();
   print("Confirme el año a consultar");
-  ano = int.parse(stdin.readLineSync()!);
-  print("confirme si es bisiesto SI o NO");
-  bisiesto = stdin.readLineSync();
+  anio = int.parse(stdin.readLineSync()!);
   //PROCESO Alg
   dias = 0;
+  esBisiesto = false;
   switch (meses?.toLowerCase()) {
     case "enero":
+
       dias = 31;
       break;
     case "febrero":
-      if (bisiesto == "SI") {
+      bisiesto = anio % 4;
+      if (bisiesto == 0) {
         dias = 29;
+        esBisiesto = true;
       } else {
         dias = 28;
       }
@@ -63,5 +66,10 @@ Es necesario tener en cuenta si es año bisiesto o no.
       print("Datos mal ingresados");
   }
   //SALIDA Alg
-  print("En el $ano el mes $meses tiene $dias");
+  if (esBisiesto == true) {
+    print("El año tiene 366 días");
+  } else {
+    print("El año tiene 365 días");
+  }
+  print("El mes $meses tiene $dias días");
 }

@@ -22,7 +22,7 @@ Determinar en que tipo de jubilación, quedara adscrita una persona
   print(
       "Confirme cuanto tiempo lleva trabajando en el mismo lugar (Se representa en Años)");
   tiempoTrabajo = double.parse(stdin.readLineSync()!);
-  //PROCESO Alg
+  //PROCESO-SALIDA Alg
   if (edad >= 60 && tiempoTrabajo < 25) {
     print("Ustede se encuentra adscrita a jubilación por edad");
     print(
@@ -38,5 +38,4 @@ Determinar en que tipo de jubilación, quedara adscrita una persona
   } else {
     print("Usted aun no cumple con los parametros");
   }
-  //SALIDA Alg
 }

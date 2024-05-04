@@ -21,7 +21,7 @@ su resultado como Cardiopatía.
   nivelHemo = double.parse(stdin.readLineSync()!);
   print("Por favor confirme su genero Hombre(H) y Mujer(M)");
   genero = stdin.readLineSync();
-  //PROCESO Alg
+  //PROCESO - SALIDA Alg
   if (opcionEdad?.toUpperCase() == "SI") {
     print("Ingrese su edad en Años");
     edad = int.parse(stdin.readLineSync()!);
@@ -98,4 +98,5 @@ su resultado como Cardiopatía.
     }
   }
   //SALIDA Alg
+  print("el paciente tiene como resultado $resultado");
 }

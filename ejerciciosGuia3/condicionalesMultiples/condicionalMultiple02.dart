@@ -29,122 +29,48 @@ Se debe imprimir el nombre del granjero y la cuenta total
   cantHectareas = double.parse(stdin.readLineSync()!);
   print("Confirme el tipo de fumigación (1-4)");
   tipoFumi = int.parse(stdin.readLineSync()!);
-  //PROCESO Alg
+  //PROCESO - SALIDA  Alg
   switch (tipoFumi) {
     case 1:
       print(
           "Usted solicito Fumigación contra malas hierbas, 50000 por hectárea");
       totalcompra = 50000 * cantHectareas;
-      if (cantHectareas > 100) {
-        print("Usted tiene un DCTO del 5%");
-        descuento = totalcompra * 0.05;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 10%");
-        descuento = totalcompra * 0.1;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (cantHectareas > 100 && totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 15%");
-        descuento = totalcompra * 0.15;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else {
-        print("Usted no tiene DCTO");
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalcompra");
-      }
-
       break;
     case 2:
       print(
           "Usted solicito Fumigación contra moscas y mosquitos, 70000 por hectárea");
       totalcompra = 70000 * cantHectareas;
-      if (cantHectareas > 100) {
-        print("Usted tiene un DCTO del 5%");
-        descuento = totalcompra * 0.05;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 10%");
-        descuento = totalcompra * 0.1;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (cantHectareas > 100 && totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 15%");
-        descuento = totalcompra * 0.15;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else {
-        print("Usted no tiene DCTO");
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalcompra");
-      }
-
       break;
     case 3:
       print("Usted solicito Fumigación contra gusanos, 80000 por hectárea.");
       totalcompra = 80000 * cantHectareas;
-      if (cantHectareas > 100) {
-        print("Usted tiene un DCTO del 5%");
-        descuento = totalcompra * 0.05;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 10%");
-        descuento = totalcompra * 0.1;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (cantHectareas > 100 && totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 15%");
-        descuento = totalcompra * 0.15;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else {
-        print("Usted no tiene DCTO");
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalcompra");
-      }
       break;
     case 4:
       print(
           "Usted solicito Fumigación contra todo lo anterior, 190000 por hectárea.");
       totalcompra = 190000 * cantHectareas;
-      if (cantHectareas > 100) {
-        print("Usted tiene un DCTO del 5%");
-        descuento = totalcompra * 0.05;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 10%");
-        descuento = totalcompra * 0.1;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else if (cantHectareas > 100 && totalcompra > 1000000) {
-        print("Usted tendrá un DCTO del 15%");
-        descuento = totalcompra * 0.15;
-        totalPagar = totalcompra - descuento;
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
-      } else {
-        print("Usted no tiene DCTO");
-        print(
-            "Su nombre es: $nombreGranjero y el total a pagar es $totalcompra");
-      }
       break;
     default:
       print("Tipo de fumigación mal registrada");
+      totalcompra = 0;
+  }
+  if (cantHectareas > 100 && totalcompra > 1000000) {
+    print("Usted tendrá un DCTO del 5%");
+    descuento = totalcompra * 0.05;
+    totalPagar = totalcompra - descuento;
+    print("Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
+  } else if (cantHectareas > 100) {
+    print("Usted tiene un DCTO del 5%");
+    descuento = totalcompra * 0.05;
+    totalPagar = totalcompra - descuento;
+    print("Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
+  } else if (totalcompra > 1000000) {
+    print("Usted tendrá un DCTO del 10%");
+    descuento = totalcompra * 0.1;
+    totalPagar = totalcompra - descuento;
+    print("Su nombre es: $nombreGranjero y el total a pagar es $totalPagar");
+  } else {
+    print("Usted no tiene DCTO");
+    print("Su nombre es: $nombreGranjero y el total a pagar es $totalcompra");
   }
 }

@@ -13,7 +13,7 @@ reste y si no que los sume.
   num1 = double.parse(stdin.readLineSync()!);
   print("Indique por favor otro número");
   num2 = double.parse(stdin.readLineSync()!);
-  //PROCESO Alg
+  //PROCESO-SALIDA Alg
   if (num1 == num2) {
     resultado = num1 * num2;
     print("En este caso como los dos números son iguales se multiplicarón y su resultado es $resultado");
@@ -24,5 +24,4 @@ reste y si no que los sume.
     resultado = num1 + num2;
       print("En este caso como el primer número 1 es menor que el número 2 se restaron y su resultado es $resultado");
   }
-  //SALIDA Alg
 }

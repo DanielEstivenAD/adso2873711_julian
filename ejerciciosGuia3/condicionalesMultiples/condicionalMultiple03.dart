@@ -14,6 +14,7 @@ Val Num
   //DEFINICIÓN Vbles
   int tipoOperacion, numero;
   double resultado;
+  num resultado2;
   //ENTRADA Alg
   print("Indique un numero para realizar los procesos");
   numero = int.parse(stdin.readLineSync()!);
@@ -27,6 +28,9 @@ Val Num
       break;
     case 2:
       resultado = pow(100, numero).toDouble();
+      resultado2 = pow(100, numero);
+      print("El resultado con tipo de datos num es: $resultado2");
+      //num res = pow(100, numero);
       break;
     case 3:
       resultado = 100 / numero.toDouble();

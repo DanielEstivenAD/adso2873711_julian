@@ -18,7 +18,6 @@ X ^ 3 + 5 Si x mod 4 = 3
   valorX = double.parse(stdin.readLineSync()!);
   //PROCESO Alg
   tipoOperacion = valorX % 4;
-  resultado = 0;
   switch (tipoOperacion) {
     case 0:
       resultado = pow(valorX, 2).toDouble();
@@ -34,6 +33,7 @@ X ^ 3 + 5 Si x mod 4 = 3
       break;
     default:
       print("el resultado no contemplado");
+      resultado = 0;
   }
   //SALIDA Alg
   print("El resultado es: $resultado");
