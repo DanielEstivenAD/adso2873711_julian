@@ -1,5 +1,5 @@
-void main(){
- //Daniel Estiven Arboleda Duque - EJE FOR 0
+void main(List<String> args){
+ //Daniel Estiven Arboleda Duque - EJE DO-WHILE 0
  /*
  */
  //DEFINICIÓN Vbles

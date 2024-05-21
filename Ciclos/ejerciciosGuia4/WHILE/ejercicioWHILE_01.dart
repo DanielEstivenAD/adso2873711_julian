@@ -14,12 +14,19 @@ void main() {
   //PROCESO-SALIDA Alg
   cantVentas = 3;
   while (contador < cantVendedores) {
-    print("Confirme el valor de su sueldo base");
+    //Controla los vendedores
+    print("Confirme el valor de su sueldo base del vendedor ");
     sueldoBase = double.parse(stdin.readLineSync()!);
     for (int i = 0; i < cantVentas; i++) {
-      print("Digite el valor de la venta " + (i + 1).toString());
+      //Controla las ventas
+      print(
+          "Digite el valor de la venta ${i + 1} del vendedor ${contador+1}"); //print("Digite el valor de la venta " + (i + 1).toString());
       valorVenta = double.parse(stdin.readLineSync()!);
       totalValorVentas += valorVenta; //totalValorVentas=totalVentas+valorVenta
+      while (valorVenta < 0 || valorVenta > 10000000) {
+        stdout.writeln("La venta esta fuera del rango, ingrese de nuevo");
+        valorVenta = double.parse(stdin.readLineSync()!);
+      }
     }
     comision = totalValorVentas * 0.1;
     print("El vendedor tiene un total de $comision de comision");
