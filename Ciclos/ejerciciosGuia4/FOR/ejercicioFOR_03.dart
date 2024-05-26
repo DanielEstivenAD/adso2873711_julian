@@ -3,13 +3,13 @@ import 'dart:io';
 void main() {
   //Daniel Estiven Arboleda Duque - EJE FOR 0
   /*
- Leer 20 números e imprimir cuantos son positivos, cuantos negativos y cuantos cero.
+ Leer 20 números e imprimir cuantos son positivos, cuantos negativos y cuantos
+ cero.
  */
   //DEFINICIÓN Vbles
   int cantNum = 20;
   double positivos = 0, negativos = 0, ceros = 0, num;
-  //ENTRADA Alg
-  //PROCESO Alg
+  //ENTRADA - PROCESO Alg
   for (int i = 0; i < cantNum; i++) {
     print("Ingresa un número");
     num = double.parse(stdin.readLineSync()!);

@@ -21,7 +21,7 @@ void main() {
     if (genero!.toUpperCase() == "H") {
       sumaH += edad;
       contadorH++;
-    } else if (genero.toUpperCase == "M") {
+    } else if (genero.toUpperCase() == "M") {
       sumaM += edad;
       contadorM++;
     } else {

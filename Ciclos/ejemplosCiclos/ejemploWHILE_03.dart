@@ -2,7 +2,8 @@ import 'dart:io';
 
 void main(List<String> args) {
   /*
-  Desarrollar un algoritmo que lea n números positivos, determine y muestre el promedio de los n números positivos
+  Desarrollar un algoritmo que lea n números positivos, determine y muestre el
+  promedio de los n números positivos
   */
   //DEFINICIÓN Vbles
   int num, cantNum, contador = 0, suma = 0;

@@ -13,12 +13,30 @@ void main(List<String> args) {
  compras.
  */
   //DEFINICIÓN Vbles
-  String? articulo;
-  int cantArticulo;
-  double precio, totalCompra;
-  //ENTRADA Alg
-
-  //PROCESO Alg
-  
+  String? articulo, opcion;
+  int cantArticulo, contadorArticulos = 0, acumArticulos = 0;
+  double precio, totalCompra = 0, totalArticulo;
+  //ENTRADA - PROCESO Alg
+  do {
+    print("Ingrese el artículo a comprar");
+    articulo = stdin.readLineSync();
+    print("Ingrese la cantidad a comprar de $articulo");
+    cantArticulo = int.parse(stdin.readLineSync()!);
+    print("Ingrese el precio de $articulo");
+    precio = double.parse(stdin.readLineSync()!);
+    totalArticulo = cantArticulo * precio;
+    print("El total en el articulo $articulo será: $totalArticulo");
+    totalCompra += totalArticulo; //acumulador
+    contadorArticulos++; //contador
+    acumArticulos += cantArticulo;
+    print("Hasta el momento lleva $contadorArticulos Items de articulos");
+    print("LA cantidad de artículos en total va en: $acumArticulos");
+    print("Desea ingresar otro articulo (SI) - (NO)");
+    opcion = stdin.readLineSync();
+    print("*" * 50);
+  } while (opcion!.toUpperCase() != "NO");
   //SALIDA Alg
+  print("Señora, el total de la compra será: $totalCompra");
+  print("Va llevar en total: $contadorArticulos");
+  print("La cantidad de artículos en total va en. $acumArticulos");
 }

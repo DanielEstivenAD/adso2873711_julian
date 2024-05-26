@@ -3,7 +3,8 @@ import 'dart:io';
 void main() {
   //Daniel Estiven Arboleda Duque - EJE FOR 0
   /*
- Calcular  e  imprimir  la  tabla  de  multiplicar  de  un  número  cualquiera.  Imprimir  el  multiplicando,  el multiplicador y el producto.
+ Calcular  e  imprimir  la  tabla  de  multiplicar  de  un  número  cualquiera.
+ Imprimir  el  multiplicando,  el multiplicador y el producto.
  */
   //DEFINICIÓN Vbles
   int cantNum = 10;

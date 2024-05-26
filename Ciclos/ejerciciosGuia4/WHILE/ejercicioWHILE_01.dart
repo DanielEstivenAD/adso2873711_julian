@@ -3,7 +3,12 @@ import 'dart:io';
 void main() {
   //Daniel Estiven Arboleda Duque - EJE WHILE 01
   /*
- Una compañía de seguros tiene contratados a n vendedores. Cada uno hace tres ventas a la semana. Su política de pagos es que un vendedor recibe un sueldo base, y un 10% extra por comisiones de sus  ventas.  El  gerente  de  su  compañía  desea  saber  cuanto  dinero obtendrá  en  la  semana  cada vendedor por concepto de comisiones por las tres ventas realizadas, y cuanto tomando en cuenta su sueldo base y sus comisiones.
+ Una compañía de seguros tiene contratados a n vendedores. Cada uno hace tres 
+ ventas a la semana. Su política de pagos es que un vendedor recibe un sueldo 
+ base, y un 10% extra por comisiones de sus  ventas.  El  gerente  de  su  
+ compañía  desea  saber  cuanto  dinero obtendrá  en  la  semana  cada vendedor 
+ por concepto de comisiones por las tres ventas realizadas, y cuanto tomando en 
+ cuenta su sueldo base y sus comisiones.
  */
   //DEFINICIÓN Vbles
   int cantVendedores, cantVentas = 3, contador = 0;
@@ -20,7 +25,8 @@ void main() {
     for (int i = 0; i < cantVentas; i++) {
       //Controla las ventas
       print(
-          "Digite el valor de la venta ${i + 1} del vendedor ${contador+1}"); //print("Digite el valor de la venta " + (i + 1).toString());
+          "Digite el valor de la venta ${i + 1} del vendedor ${contador+1}"); 
+          //print("Digite el valor de la venta " + (i + 1).toString());
       valorVenta = double.parse(stdin.readLineSync()!);
       totalValorVentas += valorVenta; //totalValorVentas=totalVentas+valorVenta
       while (valorVenta < 0 || valorVenta > 10000000) {

@@ -9,15 +9,18 @@ void main(List<String> args) {
  */
   //DEFINICIÓN Vbles
   int num;
-  double ultimoDigito, numInvertido = 0;
+  int nuevoNum, modulo, division;
   //ENTRADA Alg
-  //PROCESO Alg
+  print("Ingrese el número deseado a invertir");
+  num = int.parse(stdin.readLineSync()!);
+  nuevoNum = num;
+  print("El número inicial es: $num");
+  stdout.write("El numero invertido es:");
+  //PROCESO - SALIDA Alg
   do {
-    print("Ingrese el número entero positivo. Cero para salir");
-    num = int.parse(stdin.readLineSync()!);
-    ultimoDigito = num % 10;
-    numInvertido = numInvertido * 10 + ultimoDigito;
-    print("$numInvertido");
-  } while (num > 0);
-  //SALIDA Alg
+    modulo = nuevoNum % 10;
+    division = nuevoNum ~/ 10;
+    stdout.write(modulo);
+    nuevoNum = division;
+  } while (division != 0);
 }

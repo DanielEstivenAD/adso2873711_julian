@@ -2,7 +2,8 @@ import 'dart:io';
 
 void main(List<String> args) {
   /*
-  Desarrollar un menú que me permita realizar las operaciones matemacicas basicas
+  Desarrollar un menú que me permita realizar las operaciones matematicas 
+  basicas
   */
   int opcion;
   double resultado, num1=0, num2=0;

@@ -8,7 +8,7 @@ void main() {
   //DEFINICIÓN Vbles
   int cantNum = 10;
   double num;
-  //ENTRADA - PROCESO Alg
+  //ENTRADA - PROCESO - SALIDA Alg
   for (int i = 0; i < cantNum; i++) {
     print("Digite el número");
     num=double.parse(stdin.readLineSync()!);
@@ -16,5 +16,4 @@ void main() {
       print("$num");
     }
   }
-  //SALIDA Alg
 }

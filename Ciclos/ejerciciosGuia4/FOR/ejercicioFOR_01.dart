@@ -3,7 +3,8 @@ import 'dart:io';
 void main() {
   //Daniel Estiven Arboleda Duque - EJE FOR 01
   /*
- Calcular el promedio de un alumno que tiene 7 calificaciones en la materia de Diseño Estructurado de Algoritmos.
+ Calcular el promedio de un alumno que tiene 7 calificaciones en la materia de
+ Diseño Estructurado de Algoritmos.
  */
   //DEFINICIÓN Vbles
   int cantNotas = 7;

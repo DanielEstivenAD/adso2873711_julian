@@ -1,15 +1,32 @@
-void main(List<String> args){
- //Daniel Estiven Arboleda Duque - EJE WHILE 03
- /*
- En la Cámara de Diputados se levanta una encuesta 
- con todos los integrantes con el fin de determinar que porcentaje de 
- los n diputados esta a favor del Tratado de Libre Comercio,
-  que porcentaje esta en contra y que porcentaje se abstiene de opinar.
- El programa debe preguntar si se desea continuar ingresando datos.
+import 'dart:io';
+
+void main(List<String> args) {
+  //Daniel Estiven Arboleda Duque - EJE WHILE 03
+  /*Determinar  cuantos  hombres  y  cuantas  mujeres  se  encuentran  en  un
+  grupo  de  n  personas, suponiendo que los datos son extraídos alumno por 
+  alumno.
  */
- //DEFINICIÓN Vbles
- 
- //ENTRADA Alg
- //PROCESO Alg
- //SALIDA Alg
+  //DEFINICIÓN Vbles
+  int cantPersonas, contador = 0, hombres = 0, mujeres = 0;
+  String? genero;
+  //ENTRADA Alg}
+  print("Indique cuantas personas hay en el grupo");
+  cantPersonas = int.parse(stdin.readLineSync()!);
+  //PROCESO Alg
+  while (contador < cantPersonas) {
+    print("Confirme su genero (H) o (M)");
+    genero = stdin.readLineSync()!.toUpperCase();
+    if (genero == "H") {
+      hombres++;
+    } else if (genero == "M") {
+      mujeres++;
+    } else {
+      print("No determina como genero");
+    }
+    contador++;
+  }
+  //SALIDA Alg
+  print("Hay un total de $cantPersonas personas en el grupo");
+  print("$hombres son hombres");
+  print("$mujeres son mujeres");
 }
