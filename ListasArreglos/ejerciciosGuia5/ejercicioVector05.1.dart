@@ -10,7 +10,8 @@ void main(List<String> args) {
   //DEFINICIÓN Vbles
   List<int> list = [];
   int cantNum = 5, numBuscar, num;
-  int posicion = -1;
+  int posicion=-1;
+  bool encontrado = false;
   //ENTRADA Alg
   //PROCESO Alg
   for (var i = 0; i < cantNum; i++) {
@@ -25,11 +26,12 @@ void main(List<String> args) {
   for (int i = 0; i < list.length; i++) {
     if (numBuscar == list[i]) {
       posicion = i;
-    break; // Rompe el ciclo y se sale
+      encontrado = true;
+      break; // Rompe el ciclo y se sale
     }
   }
   //Validación de la posición
-  if (posicion != -1) {
+  if (encontrado==true) {
     print("El número se encuentra en la posición $posicion");
   } else {
     print("El número no se encontró");
