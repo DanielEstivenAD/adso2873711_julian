@@ -1,8 +1,5 @@
-import 'dart:ffi';
-
 void main(List<String> args) {
   //Definición y sdignación de Lista vacía
-  List<int> numeros1 = [];
   //Definición/Asignación Lista con elementos
   List<int> pesos = [65, 75, 70, 48, 65, 55, 48];
   List<String> frutas = ['Manzana', 'Pera', 'Fresa'];
