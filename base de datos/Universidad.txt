@@ -161,3 +161,23 @@ WHERE idPregunta = 1;
 
 DELETE FROM pregunta
 WHERE idPregunta = 5;
+
+
+
+UPDATE curso 
+SET cantidadEstudiantes = 15
+WHERE idCurso= 1 ;
+
+UPDATE curso 
+SET cantidadEstudiantes = 5
+WHERE idCurso= 2 ;
+
+UPDATE curso 
+SET cantidadEstudiantes = 20
+WHERE idCurso= 3 ;
+
+UPDATE curso 
+SET cantidadEstudiantes =35
+WHERE idCurso= 5 ;
+
+

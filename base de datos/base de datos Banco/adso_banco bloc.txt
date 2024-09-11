@@ -1,0 +1,75 @@
+/--------------------CREACION DE BD--------------------------/
+
+CREATE DATABASE adso_banco;
+
+/------------------CREACION DE TABLAS------------------------/
+
+CREATE TABLE banco (
+nitBanco INT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+email VARCHAR(45)
+);
+
+/***********************************************************/
+
+CREATE TABLE sucursal (
+idSucursal INT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(45) NOT NULL,
+direccion VARCHAR(30) NOT NULL,
+telefono VARCHAR(15),
+fkNitBanco INT NOT NULL,
+FOREIGN KEY (fkNitBanco) REFERENCES banco(nitBanco)
+);
+
+/***********************************************************/
+
+CREATE TABLE cliente (
+codCliente INT PRIMARY KEY AUTO_INCREMENT,
+nombres VARCHAR(60) NOT NULL,
+apellidos VARCHAR(60) NOT NULL,
+direccion VARCHAR(30) NOT NULL,
+salario FLOAT,
+fechaNacimiento	DATE,
+estado BOOLEAN NOT NULL
+);
+
+/***********************************************************/
+
+CREATE TABLE cuenta (
+numCuenta INT PRIMARY KEY AUTO_INCREMENT,
+tipoCuenta VARCHAR(45) NOT NULL,
+saldo FLOAT NOT NULL,
+fechaCreacion DATETIME NOT NULL,
+fkCodCliente INT NOT NULL,
+fkIdSucursal INT NOT NULL,
+FOREIGN KEY (fkCodCliente) REFERENCES cliente(codCliente),
+FOREIGN KEY (fkIdSucursal) REFERENCES sucursal(idSucursal)
+);
+
+/***********************************************************/
+
+
+CREATE TABLE prestamo (
+idPrestamo INT PRIMARY KEY AUTO_INCREMENT,
+fechaPrestamo DATE NOT NULL,
+cantidadPrestamo FLOAT NOT NULL,
+fkCodCliente INT NOT NULL,
+fkIdSucursal INT NOT NULL,
+FOREIGN KEY (fkCodCliente) REFERENCES cliente(codCliente),
+FOREIGN KEY (fkIdSucursal) REFERENCES sucursal(idSucursal)
+);
+
+/------------------INGRESO DE DATOS------------------------/
+
+
+INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
+VALUES ('Isabela','Rodriguez','Viveros #12-34',450000,'2004-11-24',1);
+
+INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
+VALUES ('Daniel','Duque','San Sebastian',1450000,'2004-04-03',1);
+
+INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
+VALUES ('Viviana','Cardenas','Kra 48D-54',1300000,'1985-11-12',1);
+
+INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
+VALUES ('Moralba','Marin','Apto 114113 BQ 123',2550000,'1990-3-20',1);
