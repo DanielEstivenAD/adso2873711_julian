@@ -2,15 +2,19 @@
 
 CREATE DATABASE adso_banco;
 
+
+
+
 /------------------CREACION DE TABLAS------------------------/
 
+/***********************BANCO********************************/
 CREATE TABLE banco (
 nitBanco INT PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) NOT NULL,
 email VARCHAR(45)
 );
 
-/***********************************************************/
+/**************************SUCURSAL**************************/
 
 CREATE TABLE sucursal (
 idSucursal INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,7 +25,7 @@ fkNitBanco INT NOT NULL,
 FOREIGN KEY (fkNitBanco) REFERENCES banco(nitBanco)
 );
 
-/***********************************************************/
+/************************CLIENTE*****************************/
 
 CREATE TABLE cliente (
 codCliente INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,7 +37,7 @@ fechaNacimiento	DATE,
 estado BOOLEAN NOT NULL
 );
 
-/***********************************************************/
+/**********************CUENTA*********************************/
 
 CREATE TABLE cuenta (
 numCuenta INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,8 +50,7 @@ FOREIGN KEY (fkCodCliente) REFERENCES cliente(codCliente),
 FOREIGN KEY (fkIdSucursal) REFERENCES sucursal(idSucursal)
 );
 
-/***********************************************************/
-
+/***********************PRESTAMO********************************/
 
 CREATE TABLE prestamo (
 idPrestamo INT PRIMARY KEY AUTO_INCREMENT,
@@ -59,17 +62,271 @@ FOREIGN KEY (fkCodCliente) REFERENCES cliente(codCliente),
 FOREIGN KEY (fkIdSucursal) REFERENCES sucursal(idSucursal)
 );
 
-/------------------INGRESO DE DATOS------------------------/
 
+
+
+/------------------INGRESO DE DATOS------------------/
 
 INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
 VALUES ('Isabela','Rodriguez','Viveros #12-34',450000,'2004-11-24',1);
 
+/***********************************************************/
+
 INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
 VALUES ('Daniel','Duque','San Sebastian',1450000,'2004-04-03',1);
+
+/***********************************************************/
 
 INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
 VALUES ('Viviana','Cardenas','Kra 48D-54',1300000,'1985-11-12',1);
 
+/***********************************************************/
+
 INSERT INTO cliente (nombres,apellidos,direccion,salario,fechaNacimiento,estado)
 VALUES ('Moralba','Marin','Apto 114113 BQ 123',2550000,'1990-3-20',1);
+
+
+
+/++++++++++++++++++++++INGRESO DE 5 CUENTAS++++++++++++++++++++++/
+
+INSERT INTO cuenta (tipoCuenta,saldo,fechaCreacion,fkCodCLiente,fkIdSucursal)
+VALUES ('ahorros',2000000,'2014-05-14',1,1);
+
+/***********************************************************/
+
+INSERT INTO cuenta (tipoCuenta,saldo,fechaCreacion,fkCodCLiente,fkIdSucursal)
+VALUES ('corriente',500000,'2014-05-14',1,2);
+
+
+/***********************************************************/
+
+INSERT INTO cuenta (tipoCuenta,saldo,fechaCreacion,fkCodCLiente,fkIdSucursal)
+VALUES ('ahorros',2500000,'2010-11-30',2,3);
+
+/***********************************************************/
+
+INSERT INTO cuenta (tipoCuenta,saldo,fechaCreacion,fkCodCLiente,fkIdSucursal)
+VALUES ('nomina',1500000,'2020-10-10',3,4);
+
+/***********************************************************/
+
+INSERT INTO cuenta (tipoCuenta,saldo,fechaCreacion,fkCodCLiente,fkIdSucursal)
+VALUES ('estudiantil',10000000,'2007-01-15',4,5);
+
+
+
+/++++++++++++++++++++++INGRESO DE 2 BANCO++++++++++++++++++++++/
+
+INSERT INTO banco (nombre,email)
+VALUES ('Bancolombia','Bancolombia@gmail.com');
+
+
+
+/++++++++++++++++++++++INGRESO DE 5 SUCURSALES++++++++++++++++++++++/
+
+INSERT INTO sucursal (nombre,direccion,telefono,fkNitBanco)
+VALUES ('Bancolombia de la 22','Cra-22','6542495205',1);
+
+/***********************************************************/
+
+INSERT INTO sucursal (nombre,direccion,telefono,fkNitBanco)
+VALUES ('Bancolombia de la santander','Av-Santander','6523148975',1);
+
+/***********************************************************/
+
+INSERT INTO sucursal (nombre,direccion,telefono,fkNitBanco)
+VALUES ('Bancolombia Plaza Bolivar','Plaza de Bolivar','6321478942',1);
+
+/***********************************************************/
+
+INSERT INTO sucursal (nombre,direccion,telefono,fkNitBanco)
+VALUES ('Caja Social Cra 23','Cra-23','3562465872',2);
+
+
+/***********************************************************/
+
+INSERT INTO sucursal (nombre,direccion,telefono,fkNitBanco)
+VALUES ('Caja Social Santander','Av-Santander','3564215875',2);
+
+
+
+/++++++++++++++++++++++INGRESO DE 4 PRESTAMOS++++++++++++++++++++++/
+
+INSERT INTO prestamo (fechaPrestamo,cantidadPrestamo,fkCodCliente,fkIdSucursal)
+VALUES ('2014-06-15',1500000,1,1);
+
+/***********************************************************/
+
+INSERT INTO prestamo (fechaPrestamo,cantidadPrestamo,fkCodCliente,fkIdSucursal)
+VALUES ('2014-07-20',2500000,1,1);
+
+/***********************************************************/
+
+INSERT INTO prestamo (fechaPrestamo,cantidadPrestamo,fkCodCliente,fkIdSucursal)
+VALUES ('2013-04-10',1000000,2,3);
+
+/***********************************************************/
+
+INSERT INTO prestamo (fechaPrestamo,cantidadPrestamo,fkCodCliente,fkIdSucursal)
+VALUES ('2010-05-04',2300000,4,5);
+
+/_________________________GUIA 2 - SEGUNDA PARTE_________________________/
+
+
+/------------------PUNTO 1------------------/
+
+UPDATE cliente SET nombres = 'Santiago', salario = 600000, fechaNacimiento ='2000-02-03' 
+WHERE codCliente = 1;
+
+/------------------PUNTO 2------------------/
+
+DELETE FROM sucursal 
+WHERE idSucursal = 1;
+
+/------------------PUNTO 3------------------/
+
+SELECT * 
+FROM cliente ORDER BY nombres DESC LIMIT 2;
+
+/------------------PUNTO 4------------------/
+
+UPDATE banco SET email = 'No registra Email' 
+WHERE nitBanco = 2;
+
+/------------------PUNTO 5------------------/
+
+UPDATE prestamo SET fechaPrestamo = CURDATE() 
+WHERE IdPrestamo = 4;
+
+UPDATE prestamo SET fechaPrestamo = CURRENT_DATE() 
+WHERE IdPrestamo = 4;
+
+UPDATE prestamo SET fechaPrestamo = NOW() 
+WHERE IdPrestamo = 4;
+
+/------------------PUNTO 6------------------/
+
+SELECT SUM(cantidadPrestamo) FROM prestamo;
+
+SELECT cliente.nombres, SUM(cantidadPrestamo) AS totalPrestamos
+FROM prestamo INNER JOIN cliente
+ON prestamo.fkCodCliente = cliente.codCliente
+GROUP BY cliente.nombres;
+
+/------------------PUNTO 7------------------/
+
+SELECT * 
+FROM cliente 
+WHERE estado = 1 AND salario > 1000000 AND fechaNacimiento > '1990-07-01';
+
+/------------------PUNTO 8------------------/
+
+SELECT AVG(cantidadPrestamo) 
+FROM prestamo 
+WHERE fkCodCliente = 1;
+
+/------------------PUNTO 9------------------/
+
+SELECT MIN(cantidadPrestamo) AS PrestamoMinimo 
+FROM prestamo 
+WHERE fkIdSucursal = 1;
+
+SELECT idSucursal, nombre, MAX(cantidadPrestamo) AS prestamoMa, MIN(cantidadPrestamo) AS prestamoMin
+FROM sucursal INNER JOIN prestamo
+ON sucursal.idSucursal = prestamo.fkIdSucursal
+GROUP BY nombre;
+
+/------------------PUNTO 10------------------/
+
+SELECT c.nombres, COUNT(p.idPrestamo) AS cantidadPrestamos
+FROM clientes c
+JOIN prestamo p ON c.codCliente = p.fkCodCliente
+WHERE c.idCliente = 1
+  AND p.fechaPrestamo >= 2024-01-01
+GROUP BY c.nombres;	
+
+SELECT c.nombres, COUNT(p.idPrestamo) AS cantidadPrestamos
+FROM clientes c
+JOIN prestamo p ON c.codCliente = p.fkCodCliente
+WHERE c.idCliente = 1
+  AND p.fechaPrestamo >= DATE_SUB(CURRENT_DATE(), INTERVAL 1 YEAR)
+GROUP BY c.nombres;	
+
+/------------------PUNTO 11------------------/
+
+SELECT MIN(fechaPrestamo) AS primerPrestamo 
+FROM prestamo 
+WHERE fkIdSucursal = 1;
+
+/------------------PUNTO 12------------------/
+
+SELECT c.codCliente, c.nombres, c.apellidos, c.direccion, c.salario, c.fechaNacimiento, c.estado, 
+       p.idPrestamo, p.fechaPrestamo, p.cantidadPrestamo
+FROM clientes c
+LEFT JOIN prestamo p ON c.codCliente = p.fkCodCliente;
+
+/------------------PUNTO 13------------------/
+
+SELECT s.nombre, COUNT(p.idPrestamo) AS numeroPrestamos
+FROM sucursal s
+LEFT JOIN prestamo p ON s.idSucursal = p.fkIdSucursal
+GROUP BY s.nombre;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+CREATE TABLE empresa(
+  nit INT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL,
+  telefono VARCHAR(13),
+  fechaCreacion DATE,
+  aniosExperiencia TINYINT NOT NULL
+);
+
+CREATE TABLE evento(
+ ideventos INT PRIMARY KEY AUTO_INCREMENT,
+ nombre VARCHAR(100) NOT NULL,
+ fechaIni DATETIME NOT NULL,
+ fechaFin DATETIME NOT NULL,
+ unicacion VARCHAR(100),
+ tipoEvento VARCHAR(20),
+ fkNitEmpresa INT NOT NULL,
+ FOREIGN KEY (fkNitEmpresa) REFERENCES empresa(nit)
+);
+
+# Insertar Datos en la tabla empresa
+INSERT INTO empresa (nit,nombre,telefono,fechaCreacion,aniosExperiencia)
+VALUES (11111,'ADSO Company','311123','2023-01-01',2);
+
+INSERT INTO empresa (nit,nombre,telefono,fechaCreacion,aniosExperiencia)
+VALUES (22222,'MegaRed',315123,'2000-02-25',5);
+
+INSERT INTO empresa (nit,nombre,telefono,fechaCreacion,aniosExperiencia)
+VALUES (33333,'SurtiPlay',320123,'2010-04-10',3);
+
+SELECT * FROM empresa
+
+# Insertar Datos en la tabla evento
+INSERT INTO evento (nombre,fechaIni,fechaFin,unicacion,tipoEvento,fkNitEmpresa)
+VALUES ('Campeonato Baloncesto callejero','2024-06-14 11:30:00','2024-06-14
+12:30:00','SENA','Deportivo',11111);
+
+INSERT INTO evento (nombre,fechaIni,fechaFin,unicacion,tipoEvento,fkNitEmpresa)
+VALUES ('Campeonato Voleibol','2024-06-24 11:00:00','2024-06-24 
+12:00:00','SENA','Deportivo',11111);
+
+INSERT INTO evento (nombre,fechaIni,fechaFin,unicacion,tipoEvento,fkNitEmpresa)
+VALUES ('Apuestas concurso pulsos','2024-07-24 11:00:00','2024-07-24 
+12:00:00','SENA','Apuestas',22222);
+
+ UPDATE evento SET unicacion ='CASINO' WHERE ideventos = 3;
+UPDATE evento SET fechaIni = '2024-08-05 08:00:00', fechaFin = '2024-08-05 10:00:00', unicacion ='CANCHAS SENA' WHERE ideventos = 2;
+
+# Insertar registro de la forma corta
+INSERT INTO empresa VALUES (44444,'Compu hiper mega red','323232','2020-01-01',3);	
+
+
+#Borrar un registro de la BD
+DELETE FROM empresa WHERE nit = 44444;
+
+DELETE FROM empresa WHERE nit = 11111;	

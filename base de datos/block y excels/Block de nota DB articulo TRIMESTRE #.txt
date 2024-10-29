@@ -1,0 +1,52 @@
+CREATE DATABASE db_articulos;
+USE db_articulos;
+
+CREATE TABLE categoria(
+idCategoria MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(50) NOT NULL,
+icono VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE autor(
+idAutor MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(80) NOT NULL,
+telefono VARCHAR(20),
+direccion VARCHAR(100),
+password VARCHAR(255) NOT NULL,
+descripcion VARCHAR(255),
+fotoPerfil VARCHAR(255)
+);
+
+
+CREATE TABLE articulo(
+idArticulo MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+titulo VARCHAR(50) NOT NULL,
+descripcion TEXT NOT NULL,
+fechaCreacion DATETIME NOT NULL,
+imagen VARCHAR(255),
+fkIdCategoria MEDIUMINT NOT NULL,
+fkIdAutor MEDIUMINT NOT NULL,
+FOREIGN KEY (fkIdCategoria) REFERENCES categoria (idCategoria),
+FOREIGN KEY (fkIdAutor) REFERENCES autor (idAutor)
+);
+
+
+
+CREATE TABLE usuario(
+idUsuario MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+nombre VARCHAR(80) NOT NULL,
+password VARCHAR(255) NOT NULL,
+email VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE articulo_usuario(
+idUsuario MEDIUMINT,
+idArticulo MEDIUMINT,
+comentario VARCHAR(255),
+puntuacion TINYINT,
+fechaComentario DATETIME,
+PRIMARY KEY (idUsuario, idArticulo),
+FOREIGN KEY (idUsuario) REFERENCES usuario (idUsuario),
+FOREIGN KEY (idArticulo) REFERENCES articulo (idArticulo)
+);
