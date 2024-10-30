@@ -85,6 +85,84 @@ AND APELLIDO = 'PEREZ';
 
 
 
+/_______________Consultas_______________/
+
+/---------------1---------------/
+SELECT NOMBRE, APELLIDO 
+FROM empleado 
+WHERE NOMBRE LIKE 'D%'
+OR APELLIDO LIKE 'D%';
+
+/---------------2---------------/
+SELECT NOMBRE, ANNOS_EXPERIENCIA
+FROM empleado
+WHERE ANNOS_EXPERIENCIA = 1
+OR ANNOS_EXPERIENCIA = 2
+OR ANNOS_EXPERIENCIA = 3;
+
+/---------------3---------------/
+SELECT *
+FROM empleado
+WHERE DIRECCION IS NULL;
+
+/---------------4---------------/
+SELECT *
+FROM empleado
+WHERE SALARIO > 2000000
+OR TIMESTAMPDIFF(YEAR, FECHA_NCTO, CURDATE()) > 30;
+
+/---------------5---------------/
+SELECT empleado.NOMBRE, area.NOMBRE_AREA, proyecto.NOMBRE_PROYECTO
+FROM proyecto 
+JOIN empleado_proyecto 
+ON proyecto.NUMERO_PROYECTO = empleado_proyecto.FK_NUMERO_PROYECTO
+JOIN empleado 
+ON empleado_proyecto.FK_CEDULA_EMPLEADO = empleado.CEDULA_EMPLEADO
+JOIN area
+ON empleado.FK_NUMERO_AREA = area.NUMERO_AREA
+WHERE NOMBRE_AREA = 'Ventas';
+
+/---------------6---------------/
+SELECT DISTINCT empleado.NOMBRE, empleado.APELLIDO
+FROM empleado 
+JOIN empleado_proyecto 
+ON EMPLEADO.CEDULA_EMPLEADO = empleado_proyecto.FK_CEDULA_EMPLEADO
+JOIN proyecto 
+ON empleado_proyecto.FK_NUMERO_PROYECTO = proyecto.NUMERO_PROYECTO
+WHERE numero_proyecto IN(
+		SELECT proyecto.NUMERO_PROYECTO
+		FROM empleado 
+		JOIN empleado_proyecto 
+		ON EMPLEADO.CEDULA_EMPLEADO = empleado_proyecto.FK_CEDULA_EMPLEADO
+		JOIN proyecto 
+		ON empleado_proyecto.FK_NUMERO_PROYECTO = proyecto.NUMERO_PROYECTO
+		WHERE empleado.CEDULA_EMPLEADO = 123456789
+)
+AND empleado.CEDULA_EMPLEADO != 123456789
+AND empleado.FECHA_NCTO < (
+	SELECT empleado.FECHA_NCTO
+    FROM empleado
+    WHERE empleado.CEDULA_EMPLEADO = 123456789
+)
+
+/---------------7---------------/
+SELECT empleado.NOMBRE, empleado.APELLIDO, dependiente.NOMBRE_DEPENDIENTE
+FROM empleado
+JOIN dependiente 
+ON empleado.CEDULA_EMPLEADO = dependiente.FK_CEDULA_EMPLEADO
+WHERE TIMESTAMPDIFF(YEAR, dependiente.FECHA_NCTO, CURDATE()) < 20
+AND SALARIO > 1500000;
+
+/---------------8---------------/
+SELECT 
+
+
+
+
+
+
+
+
 
 
 
